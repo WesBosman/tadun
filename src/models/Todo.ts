@@ -1,11 +1,27 @@
 import { types, Instance } from "mobx-state-tree"
+import { format, formatDistance } from "date-fns"
 
 export const TodoItem = types.model('TodoItem', {
     id: types.identifierNumber,
     title: types.string,
     isCompleted: types.boolean,
-}).actions(self => ({
+    createdAt: types.optional(types.Date, new Date()),
+    completedAt: types.maybeNull(types.Date),
+}).views(self => ({
+    /**
+     * If the to-do item has been completed show how long it took to complete
+     * Otherwise show the date it was created
+     */
+    get date() {
+        if (self.isCompleted && self.completedAt !== null) {
+            return formatDistance(self.completedAt, self.createdAt);
+        }
+
+        return format(self.createdAt, "M/d/yy");
+    },
+})).actions(self => ({
     setIsCompleted() {
+        self.completedAt = new Date();
         self.isCompleted = !self.isCompleted;
     }
 }))
