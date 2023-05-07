@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "date-fns": "^2.30.0",
     "mobx": "^6.7.0",
     "mobx-react": "^7.6.0",
     "mobx-state-tree": "^5.1.7",
