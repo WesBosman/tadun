@@ -9,7 +9,12 @@ const TodoList = () => {
         <div className="flex flex-col items-center shadow-lg bg-slate-50 shadow-md pb-2" style={{
                 background: 'linear-gradient(0.25turn, white 24px, rgb(248 113 113) 2px, rgb(248 113 113) 2px, white 26px, white)',
             }}>
-            <div className="mt-8 w-full" >
+            <div className="mt-8 w-full" style={{
+                backgroundImage: 'repeating-linear-gradient(0deg, transparent 0px 30px, transparent 0 30px, dodgerblue 30px 32px)',
+                lineHeight: "32px",
+                backgroundPositionY: "30px",
+                height: `${(rootStore.items.length * 32) + 32}px`,
+            }} >
                 <div className="w-full pl-8 flex flex-row justify-end pr-2">{date}</div>
                 {rootStore.items.map((item: any, i: any) => {
                     return (<TodoItem key={i} item={item}/>);
