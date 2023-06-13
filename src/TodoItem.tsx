@@ -9,12 +9,12 @@ interface TodoProps {
 const TodoItem: FC<TodoProps> = ({item}): JSX.Element => {
     const isCompletedClass = item.isCompleted ? 'line-through' : '';
     return (
-        <label htmlFor="item" className={`flex justify-between text-slate-700 w-full pl-8 pt-1 pr-1 pb-1 gap-2 hover:cursor-pointer border-t-2 border-blue-400 last:border-b-2`} onClick={(e) => {
+        <label htmlFor="item" className={`flex justify-between text-slate-700 w-full pl-8 pr-1 gap-2 hover:cursor-pointer`} onClick={(e) => {
             item.setIsCompleted()
         }}>
             <div className={"flex gap-2"}>
-                <input className="basis-1 checked:bg-blue-500" type="checkbox" name="item" checked={item.isCompleted}/>
-                <span className={`hover:text-slate-900 ${isCompletedClass}`}>{item.title}</span>
+                <input className="basis-1 checked:bg-blue-500 " type="checkbox" name="item" checked={item.isCompleted}/>
+                <span className={`text-left hover:text-slate-900 ${isCompletedClass}`}>{item.title}</span>
             </div>
             <span className="">{item.date}</span>
         </label>
