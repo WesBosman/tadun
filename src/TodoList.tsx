@@ -16,8 +16,8 @@ const TodoList = () => {
                 height: `${(rootStore.items.length * 32) + 32}px`,
             }} >
                 <div className="w-full pl-8 flex flex-row justify-end pr-2">{date}</div>
-                {rootStore.items.map((item: any, i: any) => {
-                    return (<TodoItem key={i} item={item}/>);
+                {rootStore.items.map((item: any) => {
+                    return (<TodoItem key={item.id} item={item}/>);
                 })}
             </div>
             <div className="mt-8 w-full">

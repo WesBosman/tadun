@@ -15,7 +15,6 @@ function App() {
           rootStore.addTodo(TodoItem.create({
             id: 2,
             title: e.target.value,
-            isCompleted: false,
           }));
           e.target.value = '';
         }

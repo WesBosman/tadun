@@ -13,7 +13,7 @@ const TodoItem: FC<TodoProps> = ({item}): JSX.Element => {
             item.setIsCompleted()
         }}>
             <div className={"flex gap-2"}>
-                <input className="basis-1 checked:bg-blue-500 " type="checkbox" name="item" checked={item.isCompleted}/>
+                <input className="basis-1 checked:bg-blue-500 " type="checkbox" name="item" checked={item.isCompleted} onChange={()=>{}}/>
                 <span className={`text-left hover:text-slate-900 ${isCompletedClass}`}>{item.title}</span>
             </div>
             <span className="">{item.date}</span>
