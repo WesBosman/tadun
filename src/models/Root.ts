@@ -10,9 +10,10 @@ initialState.loadTodos();
 
 export const rootStore = initialState;
 
-onSnapshot(rootStore, (snapshot) => {
-  console.log("Snapshot: ", snapshot);
-});
+// For debugging
+// onSnapshot(rootStore, (snapshot) => {
+//   console.log("Snapshot: ", snapshot);
+// });
 
 export type RootInstance = Instance<typeof TodoList>;
 const RootStoreContext = createContext<null | RootInstance>(null);

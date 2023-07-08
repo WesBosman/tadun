@@ -12,10 +12,7 @@ function App() {
           return;
         }
         if (e.key === 'Enter') {
-          rootStore.addTodo(TodoItem.create({
-            id: 2,
-            title: e.target.value,
-          }));
+          rootStore.addTodo(e.target.value);
           e.target.value = '';
         }
       }}/>

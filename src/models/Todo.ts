@@ -1,4 +1,4 @@
-import { types, Instance, flow } from "mobx-state-tree"
+import { types, Instance, flow, destroy, getParent, getRoot, ISimpleType } from "mobx-state-tree"
 import { format, formatDistance } from "date-fns"
 import { db } from "../db";
 
@@ -7,9 +7,13 @@ export const TodoItem = types.model('TodoItem', {
     title: types.string,
     createdAt: types.optional(types.Date, new Date()),
     completedAt: types.maybeNull(types.Date),
+    showActions: false,
 }).views(self => ({
     get isCompleted() {
         return self.completedAt !== null;
+    },
+    get showActionClass() {
+        return self.showActions ? 'actions' : '';
     },
     /**
      * If the to-do item has been completed show how long it took to complete
@@ -23,6 +27,12 @@ export const TodoItem = types.model('TodoItem', {
         return format(self.createdAt, "M/d/yy");
     },
 })).actions(self => ({
+    delete() {
+        getRoot(self).removeTodo(self);
+    },
+    setShowActions() {
+        self.showActions = !self.showActions;
+    },
     setIsCompleted() {
         if (self.isCompleted) {
             self.completedAt = null;
@@ -45,9 +55,14 @@ export const TodoList = types.model('TodoList', {
         return self.items.filter(x => !x.isCompleted);
     }
 })).actions(self => {
-    const addTodo = (todo: ITodoItem) => {
-        self.items.push(todo);
-        db.todos.add({title: todo.title, createdAt: todo.createdAt, completedAt: todo.completedAt})
+    const addTodo = async (title: string) => {
+        await db.todos.add({title: title, createdAt: new Date(), completedAt: null})
+        self.loadTodos()
+    }
+
+    const removeTodo = (todo: ITodoItem) => {
+        db.todos.delete(todo.id);
+        self.loadTodos();
     }
     
     const loadTodos = flow(function*() {
@@ -60,6 +75,7 @@ export const TodoList = types.model('TodoList', {
 
     return {
         addTodo,
-        loadTodos
+        loadTodos,
+        removeTodo,
     };
 })
