@@ -10,7 +10,8 @@ I'm also using this project to get more familiar with tailwind. I plan on stylin
 
 ## Nice to have features
 
-[ ] Saving list as json file  
+[X] Saving list locally  
+[ ] Deleting todos  
 [ ] Tagging items (Support tag)  
 [ ] Ability to carry tasks over that were not finished on the previous day  
 [ ] Ability to navigate between days  
