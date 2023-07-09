@@ -1,6 +1,5 @@
 import './App.css'
 import { rootStore } from './models/Root';
-import { TodoItem } from './models/Todo';
 import TodoList from './TodoList'
 
 function App() {
