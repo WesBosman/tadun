@@ -19,7 +19,7 @@ const TodoItem: FC<TodoProps> = ({item}): JSX.Element => {
                 </div>
                 <span>{item.date}</span>
             </label>
-            <span className={"tooltip hover:cursor-pointer px-2 text-blue-500"} onClick={() => item.setShowActions()}>Actions
+            <span className={"tooltip hover:cursor-pointer hover:text-blue-700 px-2 text-blue-500"} onClick={() => item.setShowActions()}>Actions
                 <div className={`${item.showActionClass} tooltip-text flex align-center justify-around gap-2 w-30 bg-gray-100 rounded`}>
                     <div className={"hover:text-red-700 text-red-500 px-2"} onClick={item.delete}>Delete</div>
                 </div>
