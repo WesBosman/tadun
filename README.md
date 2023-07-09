@@ -12,7 +12,7 @@ I'm also using this project to get more familiar with tailwind. I plan on stylin
 
 [X] Saving list locally  
 [X] Deleting todos  
+[X] Ability to carry tasks over that were not finished on the previous day(s)  
+[X] Ability to navigate between days  
 [ ] Tagging items (Support tag)  
-[ ] Ability to carry tasks over that were not finished on the previous day  
-[ ] Ability to navigate between days  
 [ ] Drag and drop items to move them up and down the list
