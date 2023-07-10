@@ -15,6 +15,12 @@ function App() {
           e.target.value = '';
         }
       }}/>
+      <div className="w-full">
+          <div className="flex justify-between align-center text-slate-700 w-100 pt-2 gap-2">
+              <div className={"hover:cursor-pointer hover:text-blue-700 text-blue-400"} onClick={rootStore.previousDate}>Previous</div>
+              <div className={"hover:cursor-pointer hover:text-blue-700 text-blue-400"} onClick={rootStore.nextDate}>Next</div>
+          </div>
+      </div>
       <TodoList/>
     </div>
   )
