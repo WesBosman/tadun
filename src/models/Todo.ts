@@ -54,19 +54,24 @@ export const TodoList = types.model('TodoList', {
         return format(self.currentDate, "EEEE, MMM, dd, yyyy")
     },
     get completed() {
-        return self.items.filter(x => x.isCompleted);
+        return self.items.filter(x => x.isCompleted)
     },
     get incompleted() {
-        return self.items.filter(x => !x.isCompleted);
+        return self.items.filter(x => !x.isCompleted)
     }
 })).actions(self => {
     const nextDate = () => {
-        self.currentDate = addDays(self.currentDate, 1);
+        self.currentDate = addDays(self.currentDate, 1)
+        self.loadTodos()
+    }
+
+    const today = () => {
+        self.currentDate = new Date()
         self.loadTodos()
     }
 
     const previousDate = () => {
-        self.currentDate = subDays(self.currentDate, 1);
+        self.currentDate = subDays(self.currentDate, 1)
         self.loadTodos()
     }
 
@@ -114,6 +119,7 @@ export const TodoList = types.model('TodoList', {
 
     return {
         previousDate,
+        today,
         nextDate,
         addTodo,
         updateTodo,
