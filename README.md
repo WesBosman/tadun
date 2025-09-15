@@ -10,9 +10,9 @@ I'm also using this project to get more familiar with tailwind. I plan on stylin
 
 ## Nice to have features
 
-[X] Saving list locally  
-[X] Deleting todos  
-[X] Ability to carry tasks over that were not finished on the previous day(s)  
-[X] Ability to navigate between days  
-[ ] Tagging items (Support tag)  
-[ ] Drag and drop items to move them up and down the list
+- [X] Saving list locally  
+- [X] Deleting todos  
+- [X] Ability to carry tasks over that were not finished on the previous day(s)  
+- [X] Ability to navigate between days  
+- [ ] Tagging items (Support tag)  
+- [ ] Drag and drop items to move them up and down the list
